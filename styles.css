@@ -1,0 +1,165 @@
+/* Estilos globales */
+body {    
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1a202c; /* Fondo oscuro general */
+    color: #ffffff; /* Color de texto blanco */
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+    font-family: 'Cinzel', serif; /* Aplica la fuente a los títulos */
+    font-weight: 700; /* Peso más grueso para mayor impacto */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff; /* Asegura que todos los encabezados sean blancos */
+    margin: 0;
+}
+
+/* Estilo general para los enlaces */
+a {
+    text-decoration: none;    
+    color: #ffffff; /* Enlaces en blanco por defecto */    
+    /*color: inherit; Mantener el color heredado del contenedor */
+}
+
+/* Cambiar el color al hacer hover solo para enlaces fuera del header */
+header a:hover {
+    color: orange; /* Estilo específico para los enlaces dentro del header */
+}
+
+/* Estilo para todos los demás enlaces fuera del header */
+body a:hover:not(header a) {
+    color: inherit; /* Mantén el color o define uno diferente */
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/* Navbar */
+header {
+    border-bottom: 1px solid #2d3748; /* Añade un borde a la barra de navegación */
+}
+
+header nav a {
+    color: #ffffff; /* Enlaces de navegación en blanco */
+    transition: color 0.3s ease;
+}
+
+header div a img:hover {
+    transform: scale(1.1); /* Efecto de zoom en los íconos de redes sociales */
+    transition: transform 0.3s ease; /* Suaviza la transformación */
+}
+
+header div h1 {
+    color: #ffa500; /* Encabezado del footer en naranja */
+}
+
+/* Hero Section */
+section.relative {
+    position: relative;
+	margin: 0; /* Asegurarse de que no hay margen extra */
+    padding: 0; /* Asegurarse de que no hay relleno adicional */
+}
+
+section.relative img {
+    filter: grayscale(20%); /* Aplicar filtro a la imagen de fondo */
+}
+
+section.relative div h2 {
+    font-size: 3rem;
+}
+
+/* Secciones generales */
+section {
+    padding: 2rem 0;
+}
+
+section.bg-gray-800 {
+    background-color: #2d3748; /* Fondo gris oscuro */
+}
+
+section.bg-gray-900 {
+    background-color: #1a202c; /* Fondo gris muy oscuro */
+}
+
+/* Estilo personalizado para separar contenedores en la sección de eventos */
+#eventos .flex > div {
+    margin-left: 16px; /* Espacio a la izquierda de cada contenedor */
+    margin-right: 16px; /* Espacio a la derecha de cada contenedor */
+}
+
+/* Botones */
+button {
+    background-color: #ffa500; /* Naranja para los botones */
+    border: none;
+}
+
+button:hover {
+    background-color: #ff7f00; /* Naranja más intenso en hover */
+}
+
+/* Galería */
+#galeria img {
+    border: 2px solid #ffa500; /* Bordes naranja para las imágenes de la galería */
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid #2d3748; /* Borde superior del footer */
+}
+
+footer div h3 {
+    color: #ffa500; /* Encabezado del footer en naranja */
+}
+
+footer div a {
+    margin: 0 8px;
+}
+
+footer div a img {
+    transition: transform 0.3s ease;
+}
+
+footer div a img:hover {
+    transform: scale(1.1); /* Efecto de zoom en los íconos de redes sociales */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    /* Ajustes para pantallas más pequeñas */
+    header nav {
+        flex-wrap: wrap;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+.container {
+    max-width: 1200px; /* Ajusta según tu diseño */
+}
+
+button {
+    font-family: 'Cinzel', sans-serif; /* Ajusta al tipo de letra que desees */
+}
+
+/* Estilo para las listas de cervezas */
+.beer-list h3, h4 {
+    font-family: 'Cinzel', sans-serif; /* Cambia esto por la fuente germánica que elijas */
+    color: #FFA500; /* Color naranja */
+}
+
+
