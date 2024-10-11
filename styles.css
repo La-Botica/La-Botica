@@ -1,3 +1,36 @@
+/* Media Queries */
+@media (max-width: 768px) {
+    /* Ajustes para pantallas más pequeñas */
+    .sidebar {
+        display: none; /* Oculta la barra lateral en móviles */
+    }
+    
+    .header {
+        font-size: 1.2rem;
+    }
+     
+    header nav {
+        flex-wrap: wrap;
+    }
+
+    body {
+        font-size: 0.9rem; /* Reducir el tamaño del texto en pantallas pequeñas */
+        overflow-x: hidden;
+    }
+    
+    .container {
+        padding: 0 1rem;
+        /*padding: 1em;*/
+    }
+}
+
+.container {
+    width: 100%; /* En lugar de una medida fija en píxeles */
+    max-width: 1200px; /* Ajusta según tu diseño */
+    padding: 1em;
+}
+
+
 /* Estilos globales */
 body {    
     font-family: 'Montserrat', sans-serif;
@@ -134,22 +167,6 @@ footer div a img {
 
 footer div a img:hover {
     transform: scale(1.1); /* Efecto de zoom en los íconos de redes sociales */
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    /* Ajustes para pantallas más pequeñas */
-    header nav {
-        flex-wrap: wrap;
-    }
-
-    .container {
-        padding: 0 1rem;
-    }
-}
-
-.container {
-    max-width: 1200px; /* Ajusta según tu diseño */
 }
 
 button {

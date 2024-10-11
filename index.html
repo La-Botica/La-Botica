@@ -43,8 +43,28 @@
 		<!-- Navbar -->
 		<header class="w-full bg-gray-900 py-4">
 			<div class="container mx-auto flex justify-between items-center px-4">
-				<h1 class="text-2xl font-bold">Cervecería La Botica</h1>
-				<nav class="flex gap-6">
+				 <h1 class="hidden sm:block text-2xl font-bold">Cervecería La Botica</h1>
+
+				<!-- Menú hamburguesa para móviles -->
+				<div class="sm:hidden">
+					<button id="menu-toggle" class="text-white focus:outline-none">
+						<svg
+							class="w-6 h-6"
+							fill="none"
+							stroke="currentColor"
+							viewBox="0 0 24 24"
+							xmlns="http://www.w3.org/2000/svg">
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								d="M4 6h16M4 12h16M4 18h16"></path>
+						</svg>
+					</button>
+				</div>
+
+				<!-- Menú de navegación para pantallas medianas en adelante -->
+				<nav class="hidden sm:flex gap-6">
 					<a href="#home" class="hover:text-orange-500">Home</a>
 					<a href="#bebidas" class="hover:text-orange-500">Carta</a>
 					<a href="#eventos" class="hover:text-orange-500">Eventos</a>
@@ -52,6 +72,8 @@
 					<a href="#localizacion" class="hover:text-orange-500">Localización</a>
 					<a href="#contacto" class="hover:text-orange-500">Contacto</a>
 				</nav>
+
+				<!-- Redes sociales visibles en todas las pantallas -->
 				<div class="flex gap-4">
 					<a href="#"
 						><img src="https://img.icons8.com/fluent-systems-filled/24/ffffff/facebook-new.png"
@@ -63,6 +85,24 @@
 					<a href="#"><img src="https://img.icons8.com/fluent-systems-filled/24/ffffff/twitter.png" /></a>
 				</div>
 			</div>
+
+			<!-- Menú desplegable para móviles (oculto por defecto) -->
+			<nav id="mobile-menu" class="hidden sm:hidden flex flex-col gap-4 mt-4 bg-gray-800 p-4">
+				<a href="#home" class="hover:text-orange-500">Home</a>
+				<a href="#bebidas" class="hover:text-orange-500">Carta</a>
+				<a href="#eventos" class="hover:text-orange-500">Eventos</a>
+				<a href="#galeria" class="hover:text-orange-500">Galería</a>
+				<a href="#localizacion" class="hover:text-orange-500">Localización</a>
+				<a href="#contacto" class="hover:text-orange-500">Contacto</a>
+			</nav>
+
+			<!-- Script para alternar el menú en móviles -->
+			<script>
+				document.getElementById("menu-toggle").addEventListener("click", function () {
+					const menu = document.getElementById("mobile-menu");
+					menu.classList.toggle("hidden");
+				});
+			</script>
 		</header>
 
 		<!-- Hero Section -->
@@ -116,29 +156,56 @@
 				<h2 class="text-3xl font-bold">Nuestra Selección de Bebidas</h2>
 				<p class="mt-2 font-semibold">Elige entre nuestra variedad de Cervezas, Vinos, Licores y Cafés.</p>
 			</div>
-			<div class="flex justify-center gap-4 mb-8">
-				<a
-					href="#cervezas_barril"
-					class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition">
-					Cervezas de Barril
-				</a>
-				<a
-					href="#cervezas_carta"
-					class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition">
-					Carta de Cervezas
-				</a>
-				<a
-					href="#vinos_cafes"
-					class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition">
-					Vinos y Cafés
-				</a>
-			</div>
-			<div class="overflow-x-auto">
-				<img
-					src="images/Carta.jpg"
-					alt="Menu Image"
-					class="w-full shadow-lg border border-orange-500 rounded-lg mb-8" />
-			</div>
+
+			<!-- Ejemplo de cambio de visibilidad según el dispositivo -->
+			<section id="menu-responsive" class="container mx-auto px-4">
+				<!-- Versión para móviles -->
+				<div class="flex flex-col gap-4 mb-8 sm:hidden">
+					<a
+						href="#cervezas_barril"
+						class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition text-center">
+						Cervezas de Barril
+					</a>
+					<a
+						href="#cervezas_carta"
+						class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition text-center">
+						Carta de Cervezas
+					</a>
+					<a
+						href="#vinos_cafes"
+						class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition text-center">
+						Vinos y Cafés
+					</a>
+				</div>
+
+				<!-- Versión para pantallas más grandes -->
+				<div class="hidden sm:block">
+					<div class="flex justify-center gap-4 mb-8">
+						<a
+							href="#cervezas_barril"
+							class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition">
+							Cervezas de Barril
+						</a>
+						<a
+							href="#cervezas_carta"
+							class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition">
+							Carta de Cervezas
+						</a>
+						<a
+							href="#vinos_cafes"
+							class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition">
+							Vinos y Cafés
+						</a>
+					</div>
+				</div>
+
+				<div class="overflow-x-auto">
+					<img
+						src="images/Carta.jpg"
+						alt="Menu Image"
+						class="w-full shadow-lg border border-orange-500 rounded-lg mb-8" />
+				</div>
+			</section>
 		</section>
 
 		<!-- Beers on Tap Section -->
@@ -365,9 +432,7 @@
 							alt="Delirium Cafe Brussels"
 							class="w-32 h-32 mx-auto mb-4" />
 						<h3 class="text-xl font-bold">La Botica Guinness</h3>
-						<p class="mt-4">
-							El original, reserva del 2004. Un vino de récord mundial.
-						</p>
+						<p class="mt-4">El original, reserva del 2004. Un vino de récord mundial.</p>
 					</div>
 					<!-- Bar Card -->
 					<div class="rounded-lg shadow-lg p-6 border-2 border-orange-500">
@@ -415,49 +480,48 @@
 			</div>
 		</section>
 
-		<!-- Events Section https://placehold.co/300x200 -->
+		<!-- Events Section -->
 		<section id="eventos_especiales" class="container mx-auto px-4">
 			<div class="container mx-auto text-center">
 				<h2 class="text-3xl font-bold mb-8">Eventos Especiales</h2>
-				<div class="flex justify-center gap-8">
-					<div class="w-1/4 text-black shadow-lg p-6 rounded-lg border border-orange-500 mx-4">
-						<img
-							src="images/dardos1.jpg"
-							alt="Concurso de Dardos"
-							class="w-full mb-4 rounded-lg" />
-						<!-- Eliminado el borde de la imagen -->
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center">
+					<div class="text-black shadow-lg p-6 rounded-lg border border-orange-500">
+						<img src="images/dardos1.jpg" alt="Concurso de Dardos" class="w-full mb-4 rounded-lg" />
 						<h3 class="text-xl font-bold">Concurso de Dardos</h3>
 						<button
 							class="mt-4 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition">
-							All Events
+							Consultar
 						</button>
 					</div>
-					<div class="w-1/4 text-black shadow-lg p-6 rounded-lg border border-orange-500 mx-4">
+					<div class="text-black shadow-lg p-6 rounded-lg border border-orange-500">
 						<img src="images/concierto1.jpg" alt="Concierto de Apertura" class="w-full mb-4 rounded-lg" />
-						<!-- Eliminado el borde de la imagen -->
 						<h3 class="text-xl font-bold">Concierto de Apertura</h3>
 						<button
 							class="mt-4 bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition">
-							All Events
+							Consultar
 						</button>
 					</div>
 				</div>
 			</div>
 		</section>
 
+		<!-- Galería de imágenes adaptada a pantallas pequeñas -->
+		<!--<section id="galeria" class="container mx-auto my-4 px-4">-->
 		<!-- Photo Gallery Section -->
 		<section id="galeria" class="container mx-auto py-12">
 			<div class="text-center mb-8">
 				<h2 class="text-3xl font-bold">Galería</h2>
 				<p class="mt-2 font-semibold">¡Mira lo que sucede en La Botica!</p>
 			</div>
-			<div class="max-w-screen-lg mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-				<img src="https://placehold.co/300x200" alt="Gallery Image" class="rounded-lg shadow-md" />
-				<img src="https://placehold.co/300x200" alt="Gallery Image" class="rounded-lg shadow-md" />
-				<img src="https://placehold.co/300x200" alt="Gallery Image" class="rounded-lg shadow-md" />
-				<img src="https://placehold.co/300x200" alt="Gallery Image" class="rounded-lg shadow-md" />
-				<img src="https://placehold.co/300x200" alt="Gallery Image" class="rounded-lg shadow-md" />
-				<img src="https://placehold.co/300x200" alt="Gallery Image" class="rounded-lg shadow-md" />
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+				<!--<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-screen-lg mx-auto">-->
+
+				<img src="https://placehold.co/300x200" alt="Gallery Image" class="w-full rounded-lg shadow-md" />
+				<img src="https://placehold.co/300x200" alt="Gallery Image" class="w-full rounded-lg shadow-md" />
+				<img src="https://placehold.co/300x200" alt="Gallery Image" class="w-full rounded-lg shadow-md" />
+				<img src="https://placehold.co/300x200" alt="Gallery Image" class="w-full rounded-lg shadow-md" />
+				<img src="https://placehold.co/300x200" alt="Gallery Image" class="w-full rounded-lg shadow-md" />
+				<img src="https://placehold.co/300x200" alt="Gallery Image" class="w-full rounded-lg shadow-md" />
 			</div>
 		</section>
 
@@ -483,7 +547,7 @@
 				<h2 class="text-3xl font-bold">Contacto</h2>
 				<p class="mt-2 font-semibold">¡Estamos aquí para ti! No dudes en enviarnos un mensaje.</p>
 			</div>
-			<form action="#" method="post" class="max-w-xl mx-auto">
+			<form action="https://formspree.io/f/xnnqqavd" method="post" class="max-w-xl mx-auto">
 				<div class="mb-4">
 					<label for="nombre" class="block text-sm font-bold mb-2">Nombre:</label>
 					<input
@@ -499,7 +563,7 @@
 					<input
 						type="email"
 						id="email"
-						name="email"
+						name="_replyto"
 						class="border border-gray-300 p-2 w-full rounded"
 						autocomplete="email"
 						required />
@@ -514,6 +578,7 @@
 						autocomplete="off"
 						required></textarea>
 				</div>
+				<input type="text" name="_gotcha" style="display:none">
 				<button
 					type="submit"
 					class="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition">
